@@ -19,9 +19,6 @@ const apiKey = process.env.API_KEY;
 class DepartamentsController {
     findOne(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const departament = yield departaments_models_1.default.query()
                 .findById(req.params.id);
             if (!departament) {
@@ -34,18 +31,12 @@ class DepartamentsController {
     }
     findAll(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const departaments = yield departaments_models_1.default.query();
             res.status(200).send(departaments);
         });
     }
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             // TODO: Univeristy final model
             const { name } = req.body;
             const departament = yield departaments_models_1.default.query()
@@ -55,9 +46,6 @@ class DepartamentsController {
     }
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             // TODO: Univeristy final model
             const { name } = req.body;
             const departament = yield departaments_models_1.default.query()
@@ -73,9 +61,6 @@ class DepartamentsController {
     }
     remove(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const departament = yield departaments_models_1.default.query()
                 .deleteById(req.params.id);
             if (!departament) {

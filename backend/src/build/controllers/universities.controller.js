@@ -19,9 +19,6 @@ const apiKey = process.env.API_KEY;
 class UniversitiesController {
     findOne(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const university = yield universities_models_1.default.query()
                 .findById(req.params.id);
             if (!university) {
@@ -34,18 +31,12 @@ class UniversitiesController {
     }
     findAll(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const universities = yield universities_models_1.default.query();
             res.status(200).send(universities);
         });
     }
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             // TODO: Univeristy final model
             const { name, city, dupa, something } = req.body;
             const university = yield universities_models_1.default.query()
@@ -57,9 +48,6 @@ class UniversitiesController {
     }
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             // TODO: Univeristy final model
             const { name, city, dupa, something } = req.body;
             const university = yield universities_models_1.default.query()
@@ -77,9 +65,6 @@ class UniversitiesController {
     }
     remove(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const university = yield universities_models_1.default.query()
                 .deleteById(req.params.id);
             if (!university) {

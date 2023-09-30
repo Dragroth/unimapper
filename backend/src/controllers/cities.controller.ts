@@ -7,10 +7,6 @@ const apiKey: string | undefined = process.env.API_KEY;
 
 export default class CitiesController {
     async findOne(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-
         const city: Cities | undefined = await Cities.query()
             .findById(req.params.id);
         if (!city) {
@@ -20,17 +16,10 @@ export default class CitiesController {
         }
     }
     async findAll(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-
         const cities: Cities[] = await Cities.query();
         res.status(200).send(cities);
     } 
     async create(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
         // TODO: Univeristy final model
         const {name} = req.body;
         const city: Cities = await Cities.query()
@@ -39,9 +28,6 @@ export default class CitiesController {
         return res.status(201).send(city);
     }
     async update(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
         // TODO: Univeristy final model
         const {name} = req.body;
         const city = await Cities.query()
@@ -55,9 +41,6 @@ export default class CitiesController {
         }
     }
     async remove(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
         const city = await Cities.query()
             .deleteById(req.params.id);
         if (!city) {

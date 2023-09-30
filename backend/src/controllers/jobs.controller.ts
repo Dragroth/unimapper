@@ -7,10 +7,6 @@ const apiKey: string | undefined = process.env.API_KEY;
 
 export default class JobsController {
     async findOne(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-
         const job: Jobs | undefined = await Jobs.query()
             .findById(req.params.id);
         if (!job) {
@@ -20,17 +16,10 @@ export default class JobsController {
         }
     }
     async findAll(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-
         const jobs: Jobs[] = await Jobs.query();
         res.status(200).send(jobs);
     } 
     async create(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
         // TODO: Univeristy final model
         const {name, salary, fieldsOfStudyID} = req.body;
         const job: Jobs = await Jobs.query()
@@ -42,9 +31,6 @@ export default class JobsController {
         return res.status(201).send(job);
     }
     async update(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
         // TODO: Univeristy final model
         const {name, salary, fieldsOfStudyID} = req.body;
         const job = await Jobs.query()
@@ -61,9 +47,6 @@ export default class JobsController {
         }
     }
     async remove(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
         const job = await Jobs.query()
             .deleteById(req.params.id);
         if (!job) {

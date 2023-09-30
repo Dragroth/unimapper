@@ -7,10 +7,6 @@ const apiKey: string | undefined = process.env.API_KEY;
 
 export default class DormsController {
     async findOne(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-
         const dorm: Dorms | undefined = await Dorms.query()
             .findById(req.params.id);
         if (!dorm) {
@@ -20,18 +16,10 @@ export default class DormsController {
         }
     }
     async findAll(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-
         const dorms: Dorms[] = await Dorms.query();
         res.status(200).send(dorms);
     } 
     async create(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-        // TODO: Univeristy final model
         const {name} = req.body;
         const dorm: Dorms = await Dorms.query()
             .insert({name});
@@ -39,10 +27,6 @@ export default class DormsController {
         return res.status(201).send(dorm);
     }
     async update(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-        // TODO: Univeristy final model
         const {name} = req.body;
         const dorm = await Dorms.query()
             .findById(req.params.id)
@@ -55,9 +39,6 @@ export default class DormsController {
         }
     }
     async remove(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
         const dorm = await Dorms.query()
             .deleteById(req.params.id);
         if (!dorm) {

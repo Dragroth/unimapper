@@ -7,10 +7,6 @@ const apiKey: string | undefined = process.env.API_KEY;
 
 export default class FieldsOfInterestController {
     async findOne(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-
         const fieldOfInterest: FieldsOfInterest | undefined = await FieldsOfInterest.query()
             .findById(req.params.id);
         if (!fieldOfInterest) {
@@ -20,18 +16,10 @@ export default class FieldsOfInterestController {
         }
     }
     async findAll(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-
         const fieldOfInterest: FieldsOfInterest[] = await FieldsOfInterest.query();
         res.status(200).send(fieldOfInterest);
     } 
     async create(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-        // TODO: Univeristy final model
         const {name} = req.body;
         const fieldOfInterest: FieldsOfInterest = await FieldsOfInterest.query()
             .insert({name});
@@ -39,10 +27,6 @@ export default class FieldsOfInterestController {
         return res.status(201).send(fieldOfInterest);
     }
     async update(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
-        // TODO: Univeristy final model
         const {name} = req.body;
         const fieldOfInterest = await FieldsOfInterest.query()
             .findById(req.params.id)
@@ -55,9 +39,6 @@ export default class FieldsOfInterestController {
         }
     }
     async remove(req: Request, res: Response, next: NextFunction) {
-        if (req.headers["x-api-key"] !== apiKey) {
-            return res.status(403).send();
-        }
         const fieldOfInterest = await FieldsOfInterest.query()
             .deleteById(req.params.id);
         if (!fieldOfInterest) {

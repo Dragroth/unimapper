@@ -19,9 +19,6 @@ const apiKey = process.env.API_KEY;
 class JobsController {
     findOne(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const job = yield jobs_models_1.default.query()
                 .findById(req.params.id);
             if (!job) {
@@ -34,18 +31,12 @@ class JobsController {
     }
     findAll(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const jobs = yield jobs_models_1.default.query();
             res.status(200).send(jobs);
         });
     }
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             // TODO: Univeristy final model
             const { name, salary, fieldsOfStudyID } = req.body;
             const job = yield jobs_models_1.default.query()
@@ -58,9 +49,6 @@ class JobsController {
     }
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             // TODO: Univeristy final model
             const { name, salary, fieldsOfStudyID } = req.body;
             const job = yield jobs_models_1.default.query()
@@ -79,9 +67,6 @@ class JobsController {
     }
     remove(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const job = yield jobs_models_1.default.query()
                 .deleteById(req.params.id);
             if (!job) {

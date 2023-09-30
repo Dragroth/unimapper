@@ -19,9 +19,6 @@ const apiKey = process.env.API_KEY;
 class DormsController {
     findOne(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const dorm = yield dorms_models_1.default.query()
                 .findById(req.params.id);
             if (!dorm) {
@@ -34,19 +31,12 @@ class DormsController {
     }
     findAll(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const dorms = yield dorms_models_1.default.query();
             res.status(200).send(dorms);
         });
     }
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
-            // TODO: Univeristy final model
             const { name } = req.body;
             const dorm = yield dorms_models_1.default.query()
                 .insert({ name });
@@ -55,10 +45,6 @@ class DormsController {
     }
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
-            // TODO: Univeristy final model
             const { name } = req.body;
             const dorm = yield dorms_models_1.default.query()
                 .findById(req.params.id)
@@ -73,9 +59,6 @@ class DormsController {
     }
     remove(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const dorm = yield dorms_models_1.default.query()
                 .deleteById(req.params.id);
             if (!dorm) {

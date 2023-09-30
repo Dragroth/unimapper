@@ -19,9 +19,6 @@ const apiKey = process.env.API_KEY;
 class CitiesController {
     findOne(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const city = yield cities_models_1.default.query()
                 .findById(req.params.id);
             if (!city) {
@@ -34,18 +31,12 @@ class CitiesController {
     }
     findAll(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const cities = yield cities_models_1.default.query();
             res.status(200).send(cities);
         });
     }
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             // TODO: Univeristy final model
             const { name } = req.body;
             const city = yield cities_models_1.default.query()
@@ -55,9 +46,6 @@ class CitiesController {
     }
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             // TODO: Univeristy final model
             const { name } = req.body;
             const city = yield cities_models_1.default.query()
@@ -73,9 +61,6 @@ class CitiesController {
     }
     remove(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const city = yield cities_models_1.default.query()
                 .deleteById(req.params.id);
             if (!city) {

@@ -19,9 +19,6 @@ const apiKey = process.env.API_KEY;
 class FieldsOfInterestController {
     findOne(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const fieldOfInterest = yield fieldsOfInterest_models_1.default.query()
                 .findById(req.params.id);
             if (!fieldOfInterest) {
@@ -34,19 +31,12 @@ class FieldsOfInterestController {
     }
     findAll(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const fieldOfInterest = yield fieldsOfInterest_models_1.default.query();
             res.status(200).send(fieldOfInterest);
         });
     }
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
-            // TODO: Univeristy final model
             const { name } = req.body;
             const fieldOfInterest = yield fieldsOfInterest_models_1.default.query()
                 .insert({ name });
@@ -55,10 +45,6 @@ class FieldsOfInterestController {
     }
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
-            // TODO: Univeristy final model
             const { name } = req.body;
             const fieldOfInterest = yield fieldsOfInterest_models_1.default.query()
                 .findById(req.params.id)
@@ -73,9 +59,6 @@ class FieldsOfInterestController {
     }
     remove(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (req.headers["x-api-key"] !== apiKey) {
-                return res.status(403).send();
-            }
             const fieldOfInterest = yield fieldsOfInterest_models_1.default.query()
                 .deleteById(req.params.id);
             if (!fieldOfInterest) {
