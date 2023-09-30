@@ -181,9 +181,10 @@ header {
   font-weight: 400;
 }
 header img {
-  height: 6vh;
+  height: 5.5vh;
   width: auto;
-  margin: 0em 10px;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 .headerLine {
   border-left: 4px solid red;
