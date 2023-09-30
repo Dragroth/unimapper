@@ -17,17 +17,35 @@ export default class Universities extends Component {
     }
 
     async componentDidMount() {
-        const unis = await fetch("https://localhost:8000/api/unis")
+        // const unis = await fetch("https://localhost:8000/api/unis")
+        //     .then(res => res.json())
+        //     .then(res => res)
+        //     .catch(err => console.error(err));
+
+        // const uo = [];
+        // unis.forEach(uni => {
+        //     uo.push(uni.name);
+        // });
+
+        // this.setState({unis: uo});
+
+
+        const depts = await fetch("http://localhost:8000/api/departaments")
             .then(res => res.json())
             .then(res => res)
-            .catch(err => console.error(err));
+            .catch(err => console.log(err));
 
-        const uo = [];
-        unis.forEach(uni => {
-            uo.push(uni.name);
+        const unis = [];
+        depts.forEach(async dept => {
+            const univeristy = await fetch(`http://localhost:8000/api/unis/${dept.university_id}`)
+                .then(res => res.json())
+                .then(res => res)
+                .catch(err => console.error(err));
+
+            unis.push({uni: univeristy.name, dept});
         });
 
-        this.setState({unis: uo});
+        console.log(unis);
     }
 
 

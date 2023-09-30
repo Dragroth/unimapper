@@ -19,7 +19,7 @@ export default class Subjects extends Component {
     }
 
     async componentDidMount() {
-        const subjects = await fetch("https://localhost:8000/api/studies")
+        const subjects = await fetch("http://localhost:8000/api/studies")
             .then(res => res.json())
             .then(res => res)
             .catch(err => console.error(err));

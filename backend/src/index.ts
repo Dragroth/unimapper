@@ -1,7 +1,7 @@
 import express, {Express} from 'express';
 import fs from 'fs';
 import Server from "./server";
-import * as https from "https";
+import * as http from "http";
 
 const domain: String = `localhost`;
 const privateKey:  String = fs.readFileSync(`${process.env.SSL}/${domain}.key`, `utf8`);
@@ -14,8 +14,8 @@ const credentials: Object = {
 
 const app: Express = express();
 const server: Server = new Server(app)
-const httpsServer: https.Server = https.createServer(credentials, app);
+const httpServer: http.Server = http.createServer(credentials, app);
 
-httpsServer.listen(server.port, () => {
+httpServer.listen(server.port, () => {
     console.log(`Server is running on: https://${server.address}:${server.port}`);
 });

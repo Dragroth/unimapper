@@ -47,7 +47,7 @@ export default class UserData extends Component {
             resultsData: this.state.resultsData
         };
 
-        fetch("https://localhost:8000/api/query", {
+        fetch("http://localhost:8000/api/query", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

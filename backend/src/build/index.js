@@ -29,7 +29,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const fs_1 = __importDefault(require("fs"));
 const server_1 = __importDefault(require("./server"));
-const https = __importStar(require("https"));
+const http = __importStar(require("http"));
 const domain = `localhost`;
 const privateKey = fs_1.default.readFileSync(`${process.env.SSL}/${domain}.key`, `utf8`);
 const certificate = fs_1.default.readFileSync(`${process.env.SSL}/${domain}.crt`, `utf8`);
@@ -39,7 +39,7 @@ const credentials = {
 };
 const app = (0, express_1.default)();
 const server = new server_1.default(app);
-const httpsServer = https.createServer(credentials, app);
-httpsServer.listen(server.port, () => {
+const httpServer = http.createServer(credentials, app);
+httpServer.listen(server.port, () => {
     console.log(`Server is running on: https://${server.address}:${server.port}`);
 });

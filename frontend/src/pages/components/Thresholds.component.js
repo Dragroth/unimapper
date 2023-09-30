@@ -28,7 +28,7 @@ export default class Thresholds extends Component {
 
 
     async componentDidMount() {
-        const cities = await fetch("https://localhost:8000/api/cities")
+        const cities = await fetch("http://localhost:8000/api/cities")
             .then(res => res.json())
             .then(res => res)
             .catch(err => console.error(err));
@@ -39,7 +39,7 @@ export default class Thresholds extends Component {
         });
             
 
-        const unis = await fetch("https://localhost:8000/api/unis")
+        const unis = await fetch("http://localhost:8000/api/unis")
             .then(res => res.json())
             .then(res => res)
             .catch(err => console.error(err));
@@ -50,7 +50,7 @@ export default class Thresholds extends Component {
         });
 
 
-        const depts = await fetch("https://localhost:8000/api/departaments")
+        const depts = await fetch("http://localhost:8000/api/departaments")
             .then(res => res.json())
             .then(res => res)
             .catch(err => console.error(err));
@@ -61,7 +61,7 @@ export default class Thresholds extends Component {
         });
 
 
-        const interests = await fetch("https://localhost:8000/api/interest")
+        const interests = await fetch("http://localhost:8000/api/interest")
             .then(res => res.json())
             .then(res => res)
             .catch(err => console.error(err));
