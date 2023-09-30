@@ -97,7 +97,7 @@ function sampleLabelRenderer(data) {
   /** skipping options those are added newly by allowNewOption feature */
   if (!data.isCurrentNew && !data.isNew) {
     /** project developer has to add their own logic to create image/icon tag */
-    prefix = `<p>dupa</p>`;
+    // prefix = `image`;
   } else {
     /** common image/icon could be added for new options */
   }

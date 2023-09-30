@@ -618,3 +618,29 @@ main {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  background-color: var(--border);
+}
+.footer-left, .footer-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-left img {
+  max-height: 10vh;
+  margin: 2%;
+}
+.footer-right img {
+  max-height: 10vh;
+}
+footer p {
+  color: white;
+  font-size: 2.5ch;
+  font-weight: bold;
+}
