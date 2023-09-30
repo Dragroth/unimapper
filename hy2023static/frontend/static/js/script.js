@@ -77,8 +77,6 @@ VirtualSelect.init({
     { label: 'Informatyka', value: '3' },
     { label: 'Biologia', value: '4' },
     { label: 'Pszyrka', value: '5' },
-    { label: '', value: '6', description: 'Chuj' },
-    { label: 'Jebanie', value: '7' },
   ],
   disabledOptions: [1, 6],
   labelRenderer: sampleLabelRenderer,
