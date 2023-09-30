@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "start": "tsc && node src/build/index.js",
+    "serve": "node src/build/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q src/build/index.js\"",
     "knex:migrate:make":     "knex --knexfile src/build/database/knexfile.js migrate:make",
     "knex:migrate:latest":   "knex --knexfile src/build/database/knexfile.js migrate:latest",
