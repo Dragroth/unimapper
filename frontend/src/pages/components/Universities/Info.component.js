@@ -1,6 +1,6 @@
 import {Component} from "react";
-import briefcaseIMG from "../../img/briefcase.png";
-import exclIMG from "../../img/exclamation.png";
+import briefcaseIMG from "../../../img/briefcase.png";
+import exclIMG from "../../../img/exclamation.png";
 
 
 export default class Info extends Component {

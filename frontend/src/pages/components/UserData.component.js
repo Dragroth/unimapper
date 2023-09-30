@@ -40,6 +40,21 @@ export default class UserData extends Component {
             subjectsData: this.state.subjectsData,
             resultsData: this.state.resultsData
         });
+
+        const body = {
+            thresholdsData: this.state.thresholdsData,
+            subjectsData: this.state.subjectsData,
+            resultsData: this.state.resultsData
+        };
+
+        fetch("https://localhost:8000/api/query", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body)
+        }).then(res => res.json())
+        .catch(err => console.error(err));
     }
 
     render() {
