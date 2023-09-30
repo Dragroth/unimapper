@@ -1,0 +1,582 @@
+/* Main parameters */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+*{
+    margin: 0; 
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    outline: 0 !important;
+    text-decoration: none !important;
+}
+:root{
+    --text:#0052a5;
+    --border:#0362c0;
+}
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ion-select{
+  --placeholder-opacity: 1 !important;
+  color:black;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+.btn-default {
+    position: relative;
+    color: white;
+    background: var(--text);
+    padding: 10px 40px 10px 40px;
+    margin-top: 1vh;
+    transition: .4s; 
+}
+.btn-default:hover {
+    background: var(--border);
+    color: white;
+    padding: 10px 60px 10px 60px;
+}
+/* Main parameters */
+.results {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 0px 40px 0px;
+  column-gap: 40px;
+  row-gap: 40px;
+}
+.resultObject {
+  width: 275px;
+  padding: 15px;
+  background: #fff;
+  text-align: center;
+  border: 2px solid var(--border);
+  border-radius: 0.5em;
+}
+.vscomp-wrapper {
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+.vscomp-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+}
+.vscomp-arrow::after {
+  border-bottom-color: var(--text);
+  border-right-color: var(--text);
+}
+.vscomp-clear-icon::before, .vscomp-clear-icon::after {
+  background-color: var(--text);
+}
+.vscomp-wrapper.multiple .vscomp-option.selected .checkbox-icon::after {
+  transform: rotate(45deg) translate(1px, -4px);
+  border-color: var(--text);
+  border-left-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  width: 50%;
+}
+.vscomp-wrapper .checkbox-icon.checked::after {
+  transform: rotate(45deg) translate(1px, -4px);
+  border-color: var(--text);
+  border-left-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  width: 50%;
+}
+.resultsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.resultObject .inputBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 10px;
+}
+.resultObject .inputBox input, .resultObject .inputBox textarea {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  outline: none;
+  resize: none;
+}
+.resultObject .inputBox .animatedPlacedholder {
+  position: absolute;
+  left: 0;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: #666;
+}
+.resultObject .inputBox input:focus ~ .animatedPlacedholder, 
+.resultObject .inputBox input:valid ~ .animatedPlacedholder,
+.resultObject .inputBox textarea:focus ~ .animatedPlacedholder, 
+.resultObject .inputBox textarea:valid ~ .animatedPlacedholder {
+  color: var(--text);
+  font-size: 12px;
+  transform: translateY(-20px);
+}
+.resultObject .inputBox input[type="submit"]
+{
+  width: 100px;
+  background: #392624;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+  transition: .3s;
+}
+.resultObject .inputBox input[type="submit"]:hover
+{
+  background-color: #684743;
+  width: 130px;
+}
+.subjectHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 20%;
+  color: var(--text);
+  margin: 0em -15px;
+}
+.subjectHeader img {
+  height: 4em; 
+  border-radius: 50%;
+}
+.resultPercent {
+  position: absolute; 
+  align-self: flex-end;
+  bottom: 25%;
+}
+header {
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2%;
+  z-index: 9999;
+  transition: .3s linear;
+  font-weight: 400;
+}
+header img {
+  height: 8vh;
+  width: auto;
+  margin: 0em 1.5em;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80") no-repeat center;
+  overflow: hidden;
+  height: 50vh;
+  width: 100vw !important;
+  z-index: 2;
+  background-size: cover;
+}
+.mainOverlay {
+  height: 50vh;
+  width: 100vw;
+  background: var(--text);
+  opacity: .85;
+  position: absolute;
+  z-index: 1;
+}
+.mainLeft {
+  padding: 2%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 3;
+  color: white;
+}
+.mainLeft h2 {
+  font-size: 5ch;
+}
+.mainLeft h3 {
+  font-size: 3ch;
+}
+.mainRight {
+  padding: 2%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3;
+  color: white;
+  margin: 2%;
+}
+.mainRight p {
+  font-size: 2.5ch;
+  line-height: 2.5ch;
+}
+.arrowBox {
+  margin: 20px 0px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border: none;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  line-height: 40px;
+  transition-duration: 0.6s;
+  display: flex;
+  justify-content: center;
+}
+.thresholdsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.thresholds {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2%;
+}
+.additionalHeading {
+  font-size: 5ch;
+  color: var(--text);
+  text-align: center;
+}
+.thresholdsOptions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 80%;
+  min-height: 20vh;
+  height: 100%;
+  margin: 40px 0px 0px 0px;
+  column-gap: 40px;
+  transition: 0.2s;
+}
+@media screen and (max-width: 1050px) {
+  .thresholds {
+    width: auto;
+  }
+}
+@media screen and (max-width: 665px) {
+  .thresholdsOptions {
+    justify-content: center;
+    row-gap: 40px;
+  }
+}
+@media screen and (max-width: 1510px) {
+  .thresholds {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1340px) {
+  .thresholds {
+    width: 100%;
+  }
+  .results {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+  main {
+    flex-direction: column;
+    height: auto;
+    height: 80vh;
+  }
+  .mainLeft {
+    width: 90%;
+  }
+  .mainRight {
+    width: 90%;
+  }
+  .mainOverlay {
+    height: 80vh;
+  }
+  .results {
+    padding: 40px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .mainRight p {
+    font-size: 2.3ch;
+  }
+}
+.additionalSubjectSelect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: var(--text);
+  column-gap: 40px;
+}
+.additionalSubjectSelect a {
+  text-decoration: none;
+  color: white;
+}
+.additionalSubjectSubmit {
+  margin: 20px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkboxContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+}
+.additionalSubjectCheckbox {
+  height: 17px;
+  width: 17px;
+  accent-color: var(--border);
+}
+@media screen and (max-width: 700px) {
+  .additionalSubjectSelect {
+    flex-direction: column;
+  }
+  .checkboxContainer {
+    margin: 40px 0px 0px 0px;
+  }
+}
+
+/* Table section */
+.universitiesListed {
+  display: flex;
+  justify-content: center;
+}
+.university {
+  width: 60%;
+}
+.department img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+.listedDepartment, .listedThreshold, .listedBalance, .listedScore, .listedDepartmentResult, .listedThresholdResult, .listedBalanceResult, .listedScoreResult, .listedPerspective, .listedProcess, .listedCost, .listedTransport {
+  border: 1px solid var(--border);
+}
+.listedDepartment, .listedThreshold, .listedBalance, .listedScore {
+  min-height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  font-weight: bold;
+}
+.listedDepartmentResult, .listedThresholdResult, .listedBalanceResult, .listedScoreResult {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.listedPerspective, .listedProcess, .listedCost, .listedTransport {
+  min-height: 14vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5ch;
+  color: var(--text);
+  font-weight: bold;
+  cursor: pointer;
+}
+.listedPerspective:hover, .listedProcess:hover, .listedCost:hover, .listedTransport:hover {
+  background: var(--border);
+  color: white;
+  transition: .3s ease-out;
+}
+.listedPerspectiveImage {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.listedPerspective p, .listedProcess p, .listedCost p, .listedTransport p{
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-column: 1 / span 2;
+}
+.listedDepartmentResult img {
+  height: 40px;
+  width: 40px;
+}
+.listedThresholdYears {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 25%;
+}
+.listedThresholdYears p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.listedThresholdBold {
+  font-weight: bold;
+}
+.department {
+  border: 1px solid var(--border);
+  margin: 2%;
+}
+.departmentHeading {
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 2%;
+  background-color: var(--text);
+  color: white;
+}
+.departmentResultHeading {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: none;
+  padding: 1% 2%;
+  color: var(--text);
+}
+.departmentResultHeadingIconHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.departmentResultHeading img {
+  height: 35px;
+  width: 35px;
+}
+.university {
+  border: 1px solid var(--border);
+}
+.universityHeading {
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 2%;
+  background-color: var(--text);
+  color: white;
+}
+.universityResultHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: none;
+  padding: 1% 2%;
+  color: var(--text);
+  cursor: pointer;
+  border: 1px solid var(--border);
+  margin: -1px -1px -1px -1px;
+}
+.universityResultHeadingIconHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.universityResultHeading img {
+  height: 35px;
+  width: 35px;
+}
+.universitiesListed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10%;
+}
+@media screen and (max-width: 1600px) {
+  .university {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .university {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .universityResultHeading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .universityResultHeadingIconHolder {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .listedPerspectiveImage {
+    width: 50%;
+  }
+  .listedPerspective p, .listedProcess p, .listedCost p, .listedTransport p{
+    width: 50%;
+  }
+  .listedDepartment {grid-area: 1 / 1 / 2 / 3;}
+  .listedDepartmentResult {grid-area: 1 / 3 / 2 / 7;}
+  .listedThreshold {grid-area: 2 / 1 / 3 / 3;}
+  .listedThresholdResult {grid-area: 2 / 3 / 3 / 7;}
+  .listedBalance {grid-area: 3 / 1 / 4 / 3;}
+  .listedBalanceResult {grid-area: 3 / 3 / 4 / 7;}
+  .listedScore {grid-area: 4 / 1 / 5 / 3;}
+  .listedScoreResult {grid-area: 4 / 3 / 5 / 7; }
+  .listedPerspective {grid-area: 5 / 1 / 6 / 7; }
+  .listedProcess {grid-area: 6 / 1 / 7 / 7;}
+  .listedCost {grid-area: 7 / 1 / 8 / 7;}
+  .listedTransport {grid-area: 8 / 1 / 9 / 7;}
+}
+
+/* PC */
+@media screen and (min-width: 1050px) {
+  .listedDepartment {grid-area: 1 / 1 / 2 / 2;}
+  .listedThreshold {grid-area: 1 / 2 / 2 / 5;}
+  .listedBalance {grid-area: 1 / 5 / 2 / 6;}
+  .listedScore {grid-area: 1 / 6 / 2 / 7;}
+  .listedDepartmentResult {grid-area: 2 / 1 / 3 / 2;}
+  .listedThresholdResult {grid-area: 2 / 2 / 3 / 5;}
+  .listedBalanceResult {grid-area: 2 / 5 / 3 / 6;}
+  .listedScoreResult {grid-area: 2 / 6 / 3 / 7; }
+  .listedPerspective {grid-area: 3 / 1 / 4 / 4; }
+  .listedProcess {grid-area: 3 / 4 / 4 / 7;}
+  .listedCost {grid-area: 4 / 1 / 5 / 4;}
+  .listedTransport {grid-area: 4 / 4 / 5 / 7;}
+  .listedPerspective {grid-area: 3 / 1 / 4 / 4; }
+  .listedProcess {grid-area: 3 / 4 / 4 / 7;}
+  .listedCost {grid-area: 4 / 1 / 5 / 4;}
+  .listedTransport {grid-area: 4 / 4 / 5 / 7;}
+}
+/* PC */
+
+.grid-container {
+  display: grid;
+  padding: 2%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
