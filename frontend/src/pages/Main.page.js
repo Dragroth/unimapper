@@ -6,6 +6,7 @@ import Thresholds from "./components/Thresholds.component";
 import Results from "./components/Results.component";
 import Subjects from "./components/Subjects.component";
 import Universities from "./components/Universities.component";
+import UserData from "./components/UserData.component";
 
 export default class Main extends Component {
     constructor(props) {super(props);}
@@ -14,9 +15,9 @@ export default class Main extends Component {
         return(
             <div>
                 <Banner />
-                <Thresholds />
-                <Results />
-                <Subjects />
+                {/* <Thresholds /> */}
+                {/* <Subjects /> */}
+                <UserData />
                 <Universities />
             </div>
         );
