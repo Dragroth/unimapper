@@ -68,4 +68,5 @@ export default class UniversitiesController {
             return res.status(200).send();
         }
     }
+
 }

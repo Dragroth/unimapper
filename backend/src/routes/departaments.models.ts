@@ -4,7 +4,7 @@ import ApiMiddlewares from "../midllewares/api.middlewares";
 import ErrorsMiddlewares from "../midllewares/errors.middlewares";
 
 
-class UnisRoutes {
+class DepartamentsRoutes {
     router: Router = Router();
     departamentsController: DepartamentsController;
     apiMiddlewares: ApiMiddlewares;
@@ -24,4 +24,4 @@ class UnisRoutes {
         this.router.put(`/update/:id`   , this.apiMiddlewares.redirectOnWrongKey, this.departamentsController.update);
         this.router.delete(`/remove/:id`, this.apiMiddlewares.redirectOnWrongKey, this.departamentsController.remove);
     }
-} export default new UnisRoutes().router;
+} export default new DepartamentsRoutes().router;

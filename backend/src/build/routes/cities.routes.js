@@ -7,7 +7,7 @@ const express_1 = require("express");
 const cities_controller_1 = __importDefault(require("../controllers/cities.controller"));
 const api_middlewares_1 = __importDefault(require("../midllewares/api.middlewares"));
 const errors_middlewares_1 = __importDefault(require("../midllewares/errors.middlewares"));
-class UnisRoutes {
+class CitiesRoutes {
     constructor() {
         this.router = (0, express_1.Router)();
         this.citiesController = new cities_controller_1.default();
@@ -23,4 +23,4 @@ class UnisRoutes {
         this.router.delete(`/remove/:id`, this.apiMiddlewares.redirectOnWrongKey, this.citiesController.remove);
     }
 }
-exports.default = new UnisRoutes().router;
+exports.default = new CitiesRoutes().router;

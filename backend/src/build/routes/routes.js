@@ -10,6 +10,7 @@ const departaments_models_1 = __importDefault(require("./departaments.models"));
 const dorms_routes_1 = __importDefault(require("./dorms.routes"));
 const fieldsOfStudy_routes_1 = __importDefault(require("./fieldsOfStudy.routes"));
 const fieldsOfInterest_routes_1 = __importDefault(require("./fieldsOfInterest.routes"));
+const query_routes_1 = __importDefault(require("./query.routes"));
 class Routes {
     constructor(app) {
         app.use("/api", home_routes_1.default);
@@ -20,6 +21,7 @@ class Routes {
         app.use("/api/studies", fieldsOfStudy_routes_1.default);
         app.use("/api/interest", fieldsOfInterest_routes_1.default);
         app.use("/api/jobs", departaments_models_1.default);
+        app.use("/api/query", query_routes_1.default);
     }
 }
 exports.default = Routes;

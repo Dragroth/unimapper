@@ -6,6 +6,7 @@ import departamentsRoutes from "./departaments.models";
 import dormsRoutes from "./dorms.routes";
 import fieldsOfStudyRoutes from "./fieldsOfStudy.routes";
 import fieldsOfInterestRoutes from "./fieldsOfInterest.routes";
+import queryRoutes from "./query.routes";
 
 
 export default class Routes {
@@ -18,5 +19,6 @@ export default class Routes {
         app.use("/api/studies", fieldsOfStudyRoutes);
         app.use("/api/interest", fieldsOfInterestRoutes);
         app.use("/api/jobs", departamentsRoutes);
+        app.use("/api/query", queryRoutes);
     }
 }
