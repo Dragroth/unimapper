@@ -5,21 +5,26 @@ import 'virtual-select-plugin/dist/virtual-select.min.css';
 import 'virtual-select-plugin/dist/virtual-select.min.js';
 
 export default class CitySelect extends Component {
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+      ele: "#city",
+    };
+  }
+
   componentDidMount() {
     window.VirtualSelect.init({
-      ele: '#city',
-      options: [
-        { label: 'Kraków', value: '1' },
-        { label: 'Warszawa', value: '2' },
-        { label: 'Gdańsk', value: '3' },
-        { label: 'Ciechocinek', value: '4' },
-      ],
+      ele: this.ele,
+      options: this.props.options,
       multiple: true,
       search: true,
       maxWidth: '275px',
       searchPlaceholderText: 'Szukaj',
       allOptionsSelectedText: 'Wszystko',
-      optionsSelectedText: 'Wybrano'
+      optionsSelectedText: ' Wybrano',
+      placeholder: "Miasta",
+      name: "cities",
     });
 
     if (typeof this.props.onChange === 'function') {

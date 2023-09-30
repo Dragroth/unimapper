@@ -7,19 +7,16 @@ import 'virtual-select-plugin/dist/virtual-select.min.js';
 export default class IntrestSelect extends Component {
   componentDidMount() {
     window.VirtualSelect.init({
-        ele: '#intrest',
-        options: [
-          { label: 'Programowanie', value: '1' },
-          { label: 'Czytanie', value: '2' },
-          { label: 'Astronomia', value: '3' },
-          { label: 'Jedzenie', value: '4' },
-        ],
+        ele: this.ele,
+        options: this.props.options,
         multiple: true,
         search: true,
         maxWidth: '275px',
         searchPlaceholderText: 'Szukaj',
         allOptionsSelectedText: 'Wszystko',
-        optionsSelectedText: 'Wybrano'
+        optionsSelectedText: 'Wybrano',
+        placeholder: "Zainteresowania",
+        name: "intrests",
     });
 
     if (typeof this.props.onChange === 'function') {
