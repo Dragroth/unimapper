@@ -7,19 +7,16 @@ import 'virtual-select-plugin/dist/virtual-select.min.js';
 export default class DeptSelect extends Component {
   componentDidMount() {
     window.VirtualSelect.init({
-        ele: '#department',
-        options: [
-          { label: 'Administracja', value: '1' },
-          { label: 'Informatyka', value: '2' },
-          { label: 'Archeologia', value: '3' },
-          { label: 'Architektura', value: '4' },
-        ],
+        ele: this.ele,
+        options: this.props.options,
         multiple: true,
         search: true,
         maxWidth: '275px',
         searchPlaceholderText: 'Szukaj',
         allOptionsSelectedText: 'Wszystko',
-        optionsSelectedText: 'Wybrano'
+        optionsSelectedText: 'Wybrano',
+        placeholder: "Wydziały",
+        name: "depts",
     });
 
     if (typeof this.props.onChange === 'function') {

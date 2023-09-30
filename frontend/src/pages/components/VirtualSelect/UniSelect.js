@@ -7,19 +7,16 @@ import 'virtual-select-plugin/dist/virtual-select.min.js';
 export default class UniSelect extends Component {
   componentDidMount() {
     window.VirtualSelect.init({
-        ele: '#university',
-        options: [
-          { label: 'Politechnika Krakowska', value: '1' },
-          { label: 'Politechnika Warszawska', value: '2' },
-          { label: 'Politechnika Poznańska', value: '3' },
-          { label: 'Politechnika Wrocławska', value: '4' },
-        ],
+        ele: this.ele,
+        options: this.props.options,
         multiple: true,
         search: true,
         maxWidth: '275px',
         searchPlaceholderText: 'Szukaj',
         allOptionsSelectedText: 'Wszystko',
-        optionsSelectedText: 'Wybrano'
+        optionsSelectedText: 'Wybrano',
+        placeholder: "Universytety",
+        name: "unis",
     });
 
     if (typeof this.props.onChange === 'function') {
