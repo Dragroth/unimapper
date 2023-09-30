@@ -1,4 +1,4 @@
-CREATE DATABASE unimaper;
+CREATE DATABASE unimapper;
 USE unimaper;
 
 -- Tabela Miasta
