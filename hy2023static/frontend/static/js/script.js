@@ -72,7 +72,6 @@ VirtualSelect.init({
 VirtualSelect.init({
   ele: '#subject',
   options: [
-    { label: '', value: '1', description: 'Cipa' },
     { label: 'Historia', value: '2' },
     { label: 'Informatyka', value: '3' },
     { label: 'Biologia', value: '4' },
