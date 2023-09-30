@@ -5,7 +5,6 @@ import CitySelect from "./VirtualSelect/CitySelect";
 import DeptSelect from "./VirtualSelect/DeptSelect";
 import IntrestSelect from "./VirtualSelect/IntrestSelect";
 import UniSelect from "./VirtualSelect/UniSelect";
-import SubjectSelect from "./VirtualSelect/SubjectSelect";
 
 export default class Thresholds extends Component {
     constructor(props) {
@@ -78,22 +77,31 @@ export default class Thresholds extends Component {
     
     handleChange(e) {
         switch(e.target.name) {
-            case "cities": {
+            case "cities":
                 this.setState({cityValue: e.target.value})
-            } break;
+            break;
 
-            case "depts": {
+            case "depts":
                 this.setState({deptValue: e.target.value});
-            } break;
+            break;
 
-            case "unis": {
+            case "unis":
                 this.setState({uniValue: e.target.value});
-            } break;
+            break;
 
-            case "intrests": {
+            case "intrests":
                 this.setState({interestValue: e.target.value})
-            } break;
+            break;
+
+            default: break;
         }
+
+        this.props.thresholdsControl({
+            cityValue: this.state.cityValue,
+            deptValue: this.state.deptValue,
+            uniValue: this.state.uniValue,
+            interestValue: this.state.interestValue
+        });
     }
 
     handleSubmit(e) {

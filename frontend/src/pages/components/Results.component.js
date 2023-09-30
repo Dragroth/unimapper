@@ -2,15 +2,24 @@ import {Component} from "react";
 import FieldsOfStudyInput from "./FieldsOfStudyInput.component";
 
 export default class Results extends Component {
-    constructor(props) {super(props);}
+    constructor(props) {
+        super(props);
+    
+        this.displayTopics = this.displayTopics.bind(this);
+    }
+
+    displayTopics() {
+        const subjects = this.props.fieldsOfStudy;
+        return subjects.map((subject, index) => (
+            <FieldsOfStudyInput topic={subject} key={index} resultsControl={this.props.resultsControl} />
+        ));
+    }
 
     render() {
         return(
             <section className="resultsContainer">
                 <section className="results">
-                    <FieldsOfStudyInput topic="Matematyka" />
-                    <FieldsOfStudyInput topic="Język polski" />
-                    <FieldsOfStudyInput topic="Język angielski" />
+                    {this.displayTopics()}
                 </section>
             </section>
         )
