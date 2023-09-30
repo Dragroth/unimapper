@@ -19,8 +19,8 @@ export default class Server {
     private config(app: Application): void {
         const corsOptions: CorsOptions = {
             origin: [
-                "localhost",
-                "127.0.0.1"
+                "localhost:8000",
+                "127.0.0.1:8000"
             ],
             methods: ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS"],
             allowedHeaders: ["set-cookie", "Content-Type", "Accept", "Origin",
@@ -33,7 +33,7 @@ export default class Server {
                 "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"],
             preflightContinue: true
         };
-        app.use(cors(corsOptions));
+        app.use(cors());
         app.use(express.json());
         app.use(express.urlencoded({extended: true, limit: "4mb"}));
         app.use(cookieParser());
