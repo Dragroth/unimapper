@@ -1,5 +1,5 @@
 CREATE DATABASE unimapper;
-USE unimaper;
+USE unimapper;
 
 -- Tabela Miasta
 CREATE TABLE cities (
