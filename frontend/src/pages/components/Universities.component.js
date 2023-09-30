@@ -1,10 +1,56 @@
 import {Component} from "react";
 
-import briefcaseIMG from "../../img/briefcase.png";
+
 import exclIMG from "../../img/exclamation.png";
 
+import Info from "./Universities/Info.component";
+
 export default class Universities extends Component {
-    constructor(props) {super(props);}
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            unis: [],
+        };
+
+        this.univeristiesList = this.univeristiesList.bind(this);
+    }
+
+    async componentDidMount() {
+        const unis = await fetch("https://localhost:8000/api/unis")
+            .then(res => res.json())
+            .then(res => res)
+            .catch(err => console.error(err));
+
+        const uo = [];
+        unis.forEach(uni => {
+            uo.push(uni.name);
+        });
+
+        this.setState({unis: uo});
+    }
+
+
+    univeristiesList() {
+        if(this.state.unis.length <= 0) {
+            <p>Ładowanie listy...</p>
+        } else {
+            return this.state.unis.map((uni, index) => (
+                <>
+                    <div key={index} className="universityResultHeading">
+                        <h3>{uni}</h3>
+                        <div className="universityResultHeadingIconHolder">
+                            <img src={exclIMG} />
+                            <i className="fa-solid fa-chevron-up"></i>
+                        </div>
+                    </div>
+
+                    <Info />
+                </>
+            ));
+        }
+    }
+
 
     render() {
         return(
@@ -15,76 +61,8 @@ export default class Universities extends Component {
                             <h3>Uniwersytet</h3>
                             <h3>Kierunki</h3>
                         </div>
-                        <div className="universityResultHeading">
-                            <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                            <div className="universityResultHeadingIconHolder">
-                                <img src={exclIMG} />
-                                <i className="fa-solid fa-chevron-up"></i>
-                            </div>
-                        </div>
-                        <section className="department">
-                            <div className="departmentHeading">
-                                <h3>Wydział</h3>
-                                <h3>Kierunek</h3>
-                            </div>
-                            <div className="departmentResultHeading">
-                                <h3>Wydział Energetyki i Paliw</h3>
-                            <div className="departmentResultHeadingIconHolder">
-                                <img src={exclIMG} />
-                                <i className="fa-solid fa-chevron-up" ></i>
-                            </div>
-                            </div>
-                            <section className="grid-container">
-                                <div className="listedDepartment">Kierunek</div>
-                                <div className="listedThreshold">Progi</div>
-                                <div className="listedBalance">Bilans</div>
-                                <div className="listedScore">Wynik</div>
-                                
-                                <div className="listedDepartmentResult">
-                                    <img src={exclIMG} />
-                                    <p>Energetyka</p>
-                                </div>
-                                <div className="listedThresholdResult">
-                                    <div className="listedThresholdYears">
-                                        <div className="listedThresholdYears1">
-                                            <p className="listedThresholdBold">520</p>
-                                            <p>2019</p>
-                                        </div>
-                                        <div className="listedThresholdYears2">
-                                            <p className="listedThresholdBold">630</p>
-                                            <p>2019</p>
-                                        </div>
-                                        <div className="listedThresholdYears3">
-                                            <p className="listedThresholdBold">650</p>
-                                            <p>2019</p>
-                                        </div>
-                                        <div className="listedThresholdYears4">
-                                            <p className="listedThresholdBold">550</p>
-                                            <p>2019</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="listedBalanceResult">-400pkt</div>
-                                <div className="listedScoreResult">780pkt</div>
-                
-                                <div className="listedPerspective">
-                                    <div className="listedPerspectiveImage"><img src={briefcaseIMG}/></div>
-                                    <p>Perspektywy zawodowe</p>
-                                </div>
-                                <div className="listedProcess">
-                                    <div className="listedPerspectiveImage"><img src={briefcaseIMG}/></div>
-                                    <p>Przebieg nauki</p>
-                                </div>
-                                <div className="listedCost">
-                                    <div className="listedPerspectiveImage"><img src={briefcaseIMG}/></div>
-                                    <p>Koszty utrzymania</p>
-                                </div>
-                                <div className="listedTransport">
-                                    <div className="listedPerspectiveImage"><img src={briefcaseIMG}/></div>
-                                    <p>Koszty dojazdu</p>
-                                </div>
-                            </section>
-                        </section>
+
+                        {this.univeristiesList()}
                     </section>
                 </section>
             </div>
