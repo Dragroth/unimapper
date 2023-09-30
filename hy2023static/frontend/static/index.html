@@ -35,14 +35,14 @@
         <!-- Main right -->
         <section class="mainRight">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sunt eaque animi tenetur! Ipsum maxime alias, eaque sunt culpa architecto sed? Temporibus corporis sed totam vel architecto error sint quae ipsam. Molestias fugiat, sint ut nostrum alias fugit at.</p>
-            <button class="arrowBox fas fa-arrow-down"></button>
+            <a href="#thresholdContainer" class="arrowBox fas fa-arrow-down"></a>
         </section>
     </main>
     <!-- Main -->
 
     <!-- Thresholds -->
     <!-- Additional options -->
-    <section class="thresholdsContainer">
+    <section id="thresholdContainer" class="thresholdsContainer">
         <section class="thresholds">
             <h2 class="additionalHeading">Progi punktowe</h2>
             <section class="thresholdsOptions">
@@ -79,8 +79,8 @@
 
             <div class="resultObject">
                 <div class="subjectHeader">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Calculator_icon.svg/2048px-Calculator_icon.svg.png"/>
-                    <h2>Matematyka</h2>
+                    <img src="img/notepad.png"/>
+                    <h2>Język polski</h2>
                 </div>
                 <div class="inputBox">
                     <input type="text" name="" required>
@@ -96,8 +96,8 @@
 
             <div class="resultObject">
                 <div class="subjectHeader">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Calculator_icon.svg/2048px-Calculator_icon.svg.png"/>
-                    <h2>Matematyka</h2>
+                    <img src="img/english.png"/>
+                    <h2>Język Angielski</h2>
                 </div>
                 <div class="inputBox">
                     <input type="text" name="" required>
@@ -134,10 +134,34 @@
                 <h3>Kierunki</h3>
             </div>
             <div class="universityResultHeading">
-                <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                <div class="universityResultHeadingIconHolder">
-                    <img src="img/exclamation.png">
-                    <i class="fa-solid fa-chevron-up"></i>
+                <div class="universityResultHeadingText">
+                    <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
+                </div>
+                <div class="universityResultHeadingIcons">
+                    <div class="universityResultAccept">
+                        <div class="possibilitesAmountCoinainer">
+                            <div class="possibilitiesAmount">
+                                <p>27</p>
+                            </div>
+                            <img src="img/accept.png">
+                        </div>
+                    </div>
+                    <div class="universityResultAlmostAccept">
+                        <div class="possibilitesAmountCoinainer">
+                            <div class="possibilitiesAmount">
+                                <p>27</p>
+                            </div>
+                            <img src="img/exclamationyellow.png">
+                        </div>
+                    </div>
+                    <div class="universityResultNotAccept">
+                        <div class="possibilitesAmountCoinainer">
+                            <div class="possibilitiesAmount">
+                                <p>27</p>
+                            </div>
+                            <img src="img/exclamationmark.png">
+                        </div>
+                    </div>
                 </div>
             </div>
             <section class="department">
@@ -147,10 +171,32 @@
                 </div>
                 <div class="departmentResultHeading">
                     <h3>Wydział Energetyki i Paliw</h3>
-                <div class="departmentResultHeadingIconHolder">
-                    <img src="img/exclamation.png">
-                    <i class="fa-solid fa-chevron-up" ></i>
-                </div>
+                    <div class="universityResultHeadingIcons">
+                        <div class="universityResultAccept">
+                            <div class="possibilitesAmountCoinainer">
+                                <div class="possibilitiesAmount">
+                                    <p>27</p>
+                                </div>
+                                <img src="img/accept.png">
+                            </div>
+                        </div>
+                        <div class="universityResultAlmostAccept">
+                            <div class="possibilitesAmountCoinainer">
+                                <div class="possibilitiesAmount">
+                                    <p>27</p>
+                                </div>
+                                <img src="img/exclamationyellow.png">
+                            </div>
+                        </div>
+                        <div class="universityResultNotAccept">
+                            <div class="possibilitesAmountCoinainer">
+                                <div class="possibilitiesAmount">
+                                    <p>27</p>
+                                </div>
+                                <img src="img/exclamationmark.png">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <section class="grid-container">
                     <!-- Table header -->
@@ -162,7 +208,7 @@
                     
                     <!-- Table content -->
                     <div class="listedDepartmentResult">
-                        <img src="img/exclamation.png">
+                        <img src="img/exclamationmark.png">
                         <p>Energetyka</p>
                     </div>
                     <div class="listedThresholdResult">
@@ -195,15 +241,15 @@
                         <p>Perspektywy zawodowe</p>
                     </div>
                     <div class="listedProcess">
-                        <div class="listedPerspectiveImage"><img src="img/briefcase.png"/></div>
+                        <div class="listedPerspectiveImage"><img src="img/calendar.png"/></div>
                         <p>Przebieg nauki</p>
                     </div>
                     <div class="listedCost">
-                        <div class="listedPerspectiveImage"><img src="img/briefcase.png"/></div>
+                        <div class="listedPerspectiveImage"><img src="img/money.png"/></div>
                         <p>Koszty utrzymania</p>
                     </div>
                     <div class="listedTransport">
-                        <div class="listedPerspectiveImage"><img src="img/briefcase.png"/></div>
+                        <div class="listedPerspectiveImage"><img src="img/bus.png"/></div>
                         <p>Koszty dojazdu</p>
                     </div>
                     <!-- Table additional info -->
@@ -212,196 +258,6 @@
         </section>
     </section>
     <!-- List of universities -->
-
-    <!-- Only univerisies listed -->
-    <section class="universitiesListed">
-        <section class="university">
-            <div class="universityHeading">
-                <h3>Uniwersytet</h3>
-                <h3>Kierunki</h3>
-            </div>
-            <div class="universityResultHeading">
-                <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                <div class="universityResultHeadingIconHolder">
-                    <img src="img/exclamation.png">
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-            </div>
-            </section>
-
-            <section class="university">
-                <div class="universityResultHeading">
-                    <h3>Dupa jasia</h3>
-                    <div class="universityResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                </div>
-                </section>
-        </section>
-
-        <!-- Univeristies and department -->
-        <section class="universitiesListed">
-            <section class="university">
-                <div class="universityHeading">
-                    <h3>Uniwersytet</h3>
-                    <h3>Kierunki</h3>
-                </div>
-                <div class="universityResultHeading">
-                    <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                    <div class="universityResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down" style="transform: rotate(180deg);"></i>
-                    </div>
-                </div>
-                <section class="department">
-                    <div class="departmentHeading">
-                        <h3>Wydział</h3>
-                        <h3>Kierunek</h3>
-                    </div>
-                    <div class="departmentResultHeading">
-                        <h3>Wydział Energetyki i Paliw</h3>
-                    <div class="departmentResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    </div>
-                </section>
-                <div class="universityResultHeading">
-                    <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                    <div class="universityResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                </div>
-                <div class="universityResultHeading">
-                    <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                    <div class="universityResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                </div>
-                <div class="universityResultHeading">
-                    <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                    <div class="universityResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                </div>
-            </section>
-        </section>
-        <!-- Universitiy, department, university -->
-
-        
-        <!-- Univeristies and department -->
-        <section class="universitiesListed">
-            <section class="university">
-                <div class="universityHeading">
-                    <h3>Uniwersytet</h3>
-                    <h3>Kierunki</h3>
-                </div>
-                <div class="universityResultHeading">
-                    <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                    <div class="universityResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down" style="transform: rotate(180deg);"></i>
-                    </div>
-                </div>
-                <section class="department">
-                    <div class="departmentHeading">
-                        <h3>Wydział</h3>
-                        <h3>Kierunek</h3>
-                    </div>
-                    <div class="departmentResultHeading">
-                        <h3>Wydział Energetyki i Paliw</h3>
-                    <div class="departmentResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down" style="transform: rotate(180deg);"></i>
-                    </div>
-                    </div>
-                    <section class="grid-container">
-                        <!-- Table header -->
-                        <div class="listedDepartment">Kierunek</div>
-                        <div class="listedThreshold">Progi</div>
-                        <div class="listedBalance">Bilans</div>
-                        <div class="listedScore">Wynik</div>
-                        <!-- Table header -->
-                        
-                        <!-- Table content -->
-                        <div class="listedDepartmentResult">
-                            <img src="img/exclamation.png">
-                            <p>Energetyka</p>
-                        </div>
-                        <div class="listedThresholdResult">
-                            <div class="listedThresholdYears">
-                                <div class="listedThresholdYears1">
-                                    <p class="listedThresholdBold">520</p>
-                                    <p>2019</p>
-                                </div>
-                                <div class="listedThresholdYears2">
-                                    <p class="listedThresholdBold">630</p>
-                                    <p>2019</p>
-                                </div>
-                                <div class="listedThresholdYears3">
-                                    <p class="listedThresholdBold">650</p>
-                                    <p>2019</p>
-                                </div>
-                                <div class="listedThresholdYears4">
-                                    <p class="listedThresholdBold">550</p>
-                                    <p>2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="listedBalanceResult">-400pkt</div>
-                        <div class="listedScoreResult">780pkt</div>
-                        <!-- Table content -->
-         
-                        <!-- Table additional info -->
-                        <div class="listedPerspective">
-                            <div class="listedPerspectiveImage"><img src="img/briefcase.png"/></div>
-                            <p>Perspektywy zawodowe</p>
-                        </div>
-                        <div class="listedProcess">
-                            <div class="listedPerspectiveImage"><img src="img/briefcase.png"/></div>
-                            <p>Przebieg nauki</p>
-                        </div>
-                        <div class="listedCost">
-                            <div class="listedPerspectiveImage"><img src="img/briefcase.png"/></div>
-                            <p>Koszty utrzymania</p>
-                        </div>
-                        <div class="listedTransport">
-                            <div class="listedPerspectiveImage"><img src="img/briefcase.png"/></div>
-                            <p>Koszty dojazdu</p>
-                        </div>
-                        <!-- Table additional info -->
-                    </section>
-                </section>
-                <div class="universityResultHeading">
-                    <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                    <div class="universityResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                </div>
-                <div class="universityResultHeading">
-                    <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                    <div class="universityResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                </div>
-                <div class="universityResultHeading">
-                    <h3>Akademia Górniczo-Hutnicza IM. Stanisława Sztaszica w Krakowie</h3>
-                    <div class="universityResultHeadingIconHolder">
-                        <img src="img/exclamation.png">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                </div>
-            </section>
-        </section>
-        <!-- Universitiy, department, university -->
-    </section>
-
 </body>
     <!-- Scripts -->
     <script src="js/tooltip.min.js"></script>
