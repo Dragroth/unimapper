@@ -39,25 +39,25 @@ export default class Info extends Component {
                     <div className="listedThresholdResult">
                         <div className="listedThresholdYears">
                             <div className="listedThresholdYears1">
-                                <p className="listedThresholdBold">{this.props.results.threshold}</p>
-                                <p>2019</p>
+                                <p className="listedThresholdBold">{this.props.results.threshold - 15}</p>
+                                <p>2020</p>
                             </div>
                             <div className="listedThresholdYears2">
-                                <p className="listedThresholdBold">{this.props.results.threshold}</p>
-                                <p>2019</p>
+                                <p className="listedThresholdBold">{this.props.results.threshold + 10}</p>
+                                <p>2021</p>
                             </div>
                             <div className="listedThresholdYears3">
-                                <p className="listedThresholdBold">{this.props.results.threshold}</p>
-                                <p>2019</p>
+                                <p className="listedThresholdBold">{this.props.results.threshold - 20}</p>
+                                <p>2022</p>
                             </div>
                             <div className="listedThresholdYears4">
                                 <p className="listedThresholdBold">{this.props.results.threshold}</p>
-                                <p>2019</p>
+                                <p>2023</p>
                             </div>
                         </div>
                     </div>
-                    <div className="listedBalanceResult">-400pkt</div>
-                    <div className="listedScoreResult">780pkt</div>
+                    <div className="listedBalanceResult">{this.props.results.threshold - this.props.results.newThreshold}</div>
+                    <div className="listedScoreResult">{this.props.results.newThreshold}</div>
     
                     <div className="listedPerspective">
                         <div className="listedPerspectiveImage"><img src={briefcaseIMG}/></div>

@@ -46,6 +46,7 @@ export default class Universities extends Component {
             un.push({uni: univeristy.name, uni_id: univeristy.id, dept});
         }));
 
+        console.log(this.props.results);
         this.setState({unis: un});
     }
 
