@@ -41,5 +41,5 @@ const app = (0, express_1.default)();
 const server = new server_1.default(app);
 const httpServer = http.createServer(credentials, app);
 httpServer.listen(server.port, () => {
-    console.log(`Server is running on: https://${server.address}:${server.port}`);
+    console.log(`Server is running on: http://${server.address}:${server.port}`);
 });

@@ -16,11 +16,18 @@ export default class QueryController {
     async selectedData(req: Request, res: Response): Promise<void> {
         const [fieldsOfStudy] = await Promise.all([Query.all]);
         const exams = await req.body;
-        const userThreshold: number = countThreshold(exams.resultsData);
+        const cities = exams.thresholdsData.cityValue;
+        const userThreshold: number = countThreshold(exams);
         let result: Array<Object> = [];
         for (const field of fieldsOfStudy) {
-            if ((field.threshold * 0.6) < userThreshold) {
-                result.push(field);
+            if (cities.length) {
+                if (((field.threshold * 0.6) < userThreshold) && (cities.includes(field.location))) {
+                    result.push(field);
+                }
+            } else {
+                if ((field.threshold * 0.6) < userThreshold) {
+                    result.push(field);
+                }
             }
         } res.status(200).send(result);
     }
