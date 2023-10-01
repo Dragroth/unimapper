@@ -17,5 +17,5 @@ const server: Server = new Server(app)
 const httpServer: http.Server = http.createServer(credentials, app);
 
 httpServer.listen(server.port, () => {
-    console.log(`Server is running on: https://${server.address}:${server.port}`);
+    console.log(`Server is running on: http://${server.address}:${server.port}`);
 });
