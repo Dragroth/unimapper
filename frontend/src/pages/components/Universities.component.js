@@ -43,7 +43,7 @@ export default class Universities extends Component {
                 .then(res => res)
                 .catch(err => console.error(err));
 
-            un.push({uni: univeristy.name, dept});
+            un.push({uni: univeristy.name, uni_id: univeristy.id, dept});
         }));
 
         this.setState({unis: un});
@@ -55,19 +55,21 @@ export default class Universities extends Component {
         if(this.state.unis.length <= 0) {
             <p>Ładowanie listy...</p>
         } else {
-            return this.state.unis.map((uni, index) => (
-                <>
-                    <div key={index} className="universityResultHeading">
-                        <h3>{uni.uni}</h3>
-                        <div className="universityResultHeadingIconHolder">
-                            <img src={exclIMG} />
-                            <i className="fa-solid fa-chevron-up"></i>
+            return this.state.unis.map((uni, index) => {
+                return (
+                    <>
+                        <div key={index} className="universityResultHeading">
+                            <h3>{uni.uni}</h3>
+                            <div className="universityResultHeadingIconHolder">
+                                <img src={exclIMG} />
+                                <i className="fa-solid fa-chevron-up"></i>
+                            </div>
                         </div>
-                    </div>
 
-                    <Info dept={uni.dept} />
-                </>
-            ));
+                        <Info dept={uni.dept} results={this.props.results[index]} />
+                    </>
+                )
+            });
         }
     }
 
