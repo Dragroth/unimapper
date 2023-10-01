@@ -17,7 +17,7 @@ export default class Info extends Component {
                     <h3>Kierunek</h3>
                 </div>
                 <div className="departmentResultHeading">
-                    <h3>Wydział Energetyki i Paliw</h3>
+                    <h3>{this.props.dept}</h3>
                 <div className="departmentResultHeadingIconHolder">
                     <img src={exclIMG} />
                     <i className="fa-solid fa-chevron-up" ></i>
