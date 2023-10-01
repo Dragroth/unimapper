@@ -74,7 +74,8 @@ export default class UserData extends Component {
                         </section>
                     </form>
     
-                    {/* <Universities /> */}
+                    {/* <Universities  /> */}
+                    <p>Ładowanie listy wyników...</p>
                 </>
             )
         } else {

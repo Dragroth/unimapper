@@ -15,12 +15,12 @@ export default class Banner extends Component {
                     <div className="mainOverlay"></div>
 
                     <section className="mainLeft">
-                        <h2>Lorem ipsum dolor.</h2>
-                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <h2>University Mapper</h2>
+                        <h3>Odkryj swoją przyszłość z odrobiną pomocy</h3>
                     </section>
 
                     <section className="mainRight">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sunt eaque animi tenetur! Ipsum maxime alias, eaque sunt culpa architecto sed? Temporibus corporis sed totam vel architecto error sint quae ipsam. Molestias fugiat, sint ut nostrum alias fugit at.</p>
+                        <p>Wybór studiów, to jedna z najważniejszych w życiu decyzji. Nie pozwól sobie zostać z nią sam i już teraz skorzystaj z pomocy sztucznej inteligencji, zaawansowanych algorytmów, oraz wierdzy eskpertów w celu odnalezienia swojej wymarzonej przyszłości. </p>
                         <button className="arrowBox fas fa-arrow-down"></button>
                     </section>
                 </main>
