@@ -2,6 +2,7 @@ import {Request, Response} from 'express';
 import dotenv from 'dotenv';
 import Query from "../models/query.model";
 import {countThreshold} from "../utils/countThreshold";
+import {filterFieldsOfStudy} from "../utils/filterFieldsOfStudy";
 
 dotenv.config();
 
@@ -14,21 +15,15 @@ export default class QueryController {
     }
 
     async selectedData(req: Request, res: Response): Promise<void> {
-        const [fieldsOfStudy] = await Promise.all([Query.all]);
-        const exams = await req.body;
-        const cities = exams.thresholdsData.cityValue;
-        const userThreshold: number = countThreshold(exams);
-        let result: Array<Object> = [];
-        for (const field of fieldsOfStudy) {
-            if (cities.length) {
-                if (((field.threshold * 0.6) < userThreshold) && (cities.includes(field.location))) {
-                    result.push(field);
-                }
-            } else {
-                if ((field.threshold * 0.6) < userThreshold) {
-                    result.push(field);
-                }
-            }
-        } res.status(200).send(result);
+        try {
+            const fieldsOfStudy: Promise<any> = await Query.all;
+            const {resultsData, thresholdsData} = await req.body;
+            const cities = thresholdsData.cityValue;
+            const userThreshold: number = countThreshold(resultsData);
+            const result = filterFieldsOfStudy(fieldsOfStudy, cities, userThreshold);
+            res.status(200).send(result);
+        } catch {
+            res.status(500).json({error: 'An error occurred'});
+        }
     }
 }

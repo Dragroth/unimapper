@@ -13,8 +13,7 @@ class Query extends Model {
                      INNER JOIN fields_of_study ON departaments.id = fields_of_study.departament_id;
         `)
             .then((result) => result[0])
-            .catch((e) => console.error(e))
-            .finally(() => knex.destroy());
+            .catch((e) => console.error(e));
     }
 }
 
