@@ -18,7 +18,7 @@ export default class Main extends Component {
                 {/* <Thresholds /> */}
                 {/* <Subjects /> */}
                 <UserData />
-                <Universities />
+                {/* <Universities /> */}
             </div>
         );
     }

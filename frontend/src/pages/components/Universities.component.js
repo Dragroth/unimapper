@@ -13,6 +13,8 @@ export default class Universities extends Component {
             unis: [],
             depts: [],
             combinedData: [],
+
+            filteredResults: [],
         };
 
         this.univeristiesList = this.univeristiesList.bind(this);
