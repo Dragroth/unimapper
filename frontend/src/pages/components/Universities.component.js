@@ -34,36 +34,15 @@ export default class Universities extends Component {
             depts.push({fos: f, dept: d});
         }));
 
-
-        console.log(depts[0].dept);
-
-
-        // const depts = await fetch("http://localhost:8000/api/departaments")
-        //     .then(res => res.json())
-        //     .then(res => res)
-        //     .catch(err => console.log(err));
-
-        // const d = [];
-        // depts.forEach(dept => {
-        //     d.push({name: dept.name, uni: dept.university_id});
-        // }); this.setState({depts: d});
-
-
         const un = [];
         await Promise.all(depts.map(async dept => {
-            const univeristy = await fetch(`http://localhost:8000/api/unis/${dept.university_id}`)
+            const univeristy = await fetch(`http://localhost:8000/api/unis/${dept.dept.university_id}`)
                 .then(res => res.json())
                 .then(res => res)
                 .catch(err => console.error(err));
 
-            // console.log(univeristy.name);
             un.push({uni: univeristy.name, dept});
         }));
-
-        // const fos = await fetch(`http://localhost:8000/api/studies`)
-        //     .then(res => res.json())
-        //     .then(res => res)
-        //     .catch(err => console.error(err));
 
         this.setState({unis: un});
     }
@@ -74,8 +53,6 @@ export default class Universities extends Component {
         if(this.state.unis.length <= 0) {
             <p>Ładowanie listy...</p>
         } else {
-            // console.log(this.state.unis[0].dept.name);
-
             return this.state.unis.map((uni, index) => (
                 <>
                     <div key={index} className="universityResultHeading">
@@ -86,7 +63,7 @@ export default class Universities extends Component {
                         </div>
                     </div>
 
-                    <Info dept={uni.dept.name} />
+                    <Info dept={uni.dept} />
                 </>
             ));
         }

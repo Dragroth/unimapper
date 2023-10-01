@@ -17,7 +17,7 @@ export default class Info extends Component {
                     <h3>Kierunek</h3>
                 </div>
                 <div className="departmentResultHeading">
-                    <h3>{this.props.dept}</h3>
+                    <h3>{this.props.dept.dept.name}</h3>
                 <div className="departmentResultHeadingIconHolder">
                     <img src={exclIMG} />
                     <i className="fa-solid fa-chevron-up" ></i>
@@ -31,7 +31,7 @@ export default class Info extends Component {
                     
                     <div className="listedDepartmentResult">
                         <img src={exclIMG} />
-                        <p>Energetyka</p>
+                        <p>{this.props.dept.fos.name}</p>
                     </div>
                     <div className="listedThresholdResult">
                         <div className="listedThresholdYears">
