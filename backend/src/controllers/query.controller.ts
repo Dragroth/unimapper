@@ -20,7 +20,11 @@ export default class QueryController {
             const {resultsData, thresholdsData} = await req.body;
             const cities = thresholdsData.cityValue;
             const userThreshold: number = countThreshold(resultsData);
-            const result = filterFieldsOfStudy(fieldsOfStudy, cities, userThreshold);
+            const arrayOfFields = filterFieldsOfStudy(fieldsOfStudy, cities, userThreshold);
+            const result = arrayOfFields.map((element: any) => {
+                element.newThreshold = userThreshold;
+                return element;
+            })
             res.status(200).send(result);
         } catch {
             res.status(500).json({error: 'An error occurred'});
