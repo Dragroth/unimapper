@@ -57,7 +57,7 @@ export default class UserData extends Component {
             },
             body: JSON.stringify(body)
         }).then(res => res.json())
-        // .then(res => {this.setState({filteredResults: res})})
+        .then(res => {this.setState({filteredResults: res})})
         .catch(err => console.error(err));
     }
 
@@ -74,7 +74,7 @@ export default class UserData extends Component {
                         </section>
                     </form>
     
-                    <Universities />
+                    {/* <Universities /> */}
                 </>
             )
         } else {
@@ -89,7 +89,7 @@ export default class UserData extends Component {
                         </section>
                     </form>
     
-                    <Universities />
+                    <Universities results={this.state.filteredResults} />
                 </>
             )
         }

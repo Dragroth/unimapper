@@ -8,6 +8,9 @@ export default class Info extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        console.log(this.props.results);
+    }
 
     render() {
         return(
@@ -36,19 +39,19 @@ export default class Info extends Component {
                     <div className="listedThresholdResult">
                         <div className="listedThresholdYears">
                             <div className="listedThresholdYears1">
-                                <p className="listedThresholdBold">520</p>
+                                <p className="listedThresholdBold">{this.props.results.threshold}</p>
                                 <p>2019</p>
                             </div>
                             <div className="listedThresholdYears2">
-                                <p className="listedThresholdBold">630</p>
+                                <p className="listedThresholdBold">{this.props.results.threshold}</p>
                                 <p>2019</p>
                             </div>
                             <div className="listedThresholdYears3">
-                                <p className="listedThresholdBold">650</p>
+                                <p className="listedThresholdBold">{this.props.results.threshold}</p>
                                 <p>2019</p>
                             </div>
                             <div className="listedThresholdYears4">
-                                <p className="listedThresholdBold">550</p>
+                                <p className="listedThresholdBold">{this.props.results.threshold}</p>
                                 <p>2019</p>
                             </div>
                         </div>
