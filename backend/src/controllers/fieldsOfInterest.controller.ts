@@ -3,7 +3,6 @@ import FieldsOfInterest from "../models/fieldsOfInterest.models";
 import dotenv from 'dotenv';
 dotenv.config();
 
-const apiKey: string | undefined = process.env.API_KEY;
 
 export default class FieldsOfInterestController {
     async findOne(req: Request, res: Response, next: NextFunction) {

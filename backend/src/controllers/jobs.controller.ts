@@ -3,7 +3,6 @@ import Jobs from '../models/jobs.models';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const apiKey: string | undefined = process.env.API_KEY;
 
 export default class JobsController {
     async findOne(req: Request, res: Response, next: NextFunction) {

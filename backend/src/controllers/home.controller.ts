@@ -2,6 +2,7 @@ import {Request, Response} from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 
+
 export default class HomeController {
     showInfo(req: Request, res: Response): Response {
         if (req.headers['x-api-key'] !== process.env.API_KEY) {

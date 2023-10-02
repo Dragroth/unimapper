@@ -3,10 +3,8 @@ import dotenv from 'dotenv';
 import Query from "../models/query.model";
 import {countThreshold} from "../utils/countThreshold";
 import {filterFieldsOfStudy} from "../utils/filterFieldsOfStudy";
-
 dotenv.config();
 
-const apiKey: string | undefined = process.env.API_KEY;
 
 export default class QueryController {
     async all(req: Request, res: Response): Promise<void> {
@@ -21,7 +19,7 @@ export default class QueryController {
             const cities = thresholdsData.cityValue;
             const userThreshold: number = countThreshold(resultsData);
             const arrayOfFields = filterFieldsOfStudy(fieldsOfStudy, cities, userThreshold);
-            const result = arrayOfFields.map((element: any) => {
+            const result = arrayOfFields.map((element: Object) => {
                 element.newThreshold = userThreshold;
                 return element;
             })

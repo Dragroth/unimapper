@@ -3,7 +3,6 @@ import Cities from '../models/cities.models';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const apiKey: string | undefined = process.env.API_KEY;
 
 export default class CitiesController {
     async findOne(req: Request, res: Response, next: NextFunction) {
