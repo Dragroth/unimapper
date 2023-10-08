@@ -18,7 +18,7 @@ class QueryRoutes {
     }
 
     initializeRoutes() {
-        this.router.get(`/` , this.apiMiddlewares.redirectOnWrongKey, this.queryController.all);
+        this.router.get(`/` , this.apiMiddlewares.redirectOnWrongKey, this.queryController.allFieldsOfStudy);
         this.router.post(`/` , this.apiMiddlewares.redirectOnWrongKey, this.queryController.selectedData);
     }
 } export default new QueryRoutes().router;

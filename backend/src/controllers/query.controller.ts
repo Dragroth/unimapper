@@ -1,25 +1,26 @@
 import {Request, Response} from 'express';
 import dotenv from 'dotenv';
 import Query from "../models/query.model";
-import {countThreshold} from "../utils/countThreshold";
-import {filterFieldsOfStudy} from "../utils/filterFieldsOfStudy";
+import Table from "../utils/table.utils"
 dotenv.config();
 
 
 export default class QueryController {
-    async all(req: Request, res: Response): Promise<void> {
-        const [query] = await Promise.all([Query.all]);
-        res.status(200).send(query);
+    async allFieldsOfStudy(req: Request, res: Response): Promise<void> {
+        const result: Promise<any> = Query.all;
+        res.status(200).send(result);
     }
 
     async selectedData(req: Request, res: Response): Promise<void> {
         try {
-            const fieldsOfStudy: Promise<any> = await Query.all;
+            const fieldsOfStudy: Promise<any> = Query.all;
             const {resultsData, thresholdsData} = await req.body;
             const cities = thresholdsData.cityValue;
-            const userThreshold: number = countThreshold(resultsData);
-            const arrayOfFields = filterFieldsOfStudy(fieldsOfStudy, cities, userThreshold);
+            const userThreshold: number = Table.countThreshold(resultsData);
+            // @ts-ignore
+            const arrayOfFields = Table.filterFieldsOfStudy(fieldsOfStudy, cities, userThreshold);
             const result = arrayOfFields.map((element: Object) => {
+            // @ts-ignore
                 element.newThreshold = userThreshold;
                 return element;
             })
