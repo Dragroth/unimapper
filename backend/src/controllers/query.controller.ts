@@ -13,20 +13,20 @@ export default class QueryController {
 
     async selectedData(req: Request, res: Response): Promise<void> {
         try {
-            const fieldsOfStudy: Promise<any> = Query.all;
+            const fieldsOfStudy: Promise<void> = await Query.all;
             const {resultsData, thresholdsData} = await req.body;
             const cities = thresholdsData.cityValue;
             const userThreshold: number = Table.countThreshold(resultsData);
-            // @ts-ignore
-            const arrayOfFields = Table.filterFieldsOfStudy(fieldsOfStudy, cities, userThreshold);
-            const result = arrayOfFields.map((element: Object) => {
-            // @ts-ignore
+            const arrayOfFields = Table.filterFieldsOfStudy(fieldsOfStudy, cities, userThreshold, 0.6);
+            const result = arrayOfFields.map((element: {newThreshold: number}): Array<Object> => {
                 element.newThreshold = userThreshold;
                 return element;
             })
             res.status(200).send(result);
         } catch {
-            res.status(500).json({error: 'An error occurred'});
+            res.status(500).json({
+                error: 'An error occurred'
+            });
         }
     }
 }

@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const departaments_models_1 = __importDefault(require("../models/departaments.models"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const apiKey = process.env.API_KEY;
 class DepartamentsController {
     findOne(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
